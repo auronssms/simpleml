@@ -202,7 +202,6 @@ class GridSearchCV:
                 self.best_params_ = param_dict
                 self.best_estimator_ = est
         
-        # Refit best estimator
         self.best_estimator_.fit(X, y)
         
         return self

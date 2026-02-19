@@ -2,7 +2,7 @@
 
 import numpy as np
 import pytest
-from sklearn_lite.ensemble import RandomForestClassifier, RandomForestRegressor
+from simpleml.ensemble import RandomForestClassifier, RandomForestRegressor
 
 
 class TestRandomForestClassifier:

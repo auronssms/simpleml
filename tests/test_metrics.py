@@ -2,7 +2,7 @@
 
 import numpy as np
 import pytest
-from sklearn_lite.metrics import (
+from simpleml.metrics import (
     accuracy_score,
     precision_score,
     recall_score,

@@ -59,7 +59,6 @@ class LinearSVC(BaseEstimator, ClassifierMixin):
         X = np.asarray(X, dtype=np.float64)
         y = np.asarray(y, dtype=np.float64)
         
-        # Convert to {-1, 1} format
         unique_classes = np.unique(y)
         if len(unique_classes) != 2:
             raise ValueError("Only binary classification is supported")
@@ -79,13 +78,11 @@ class LinearSVC(BaseEstimator, ClassifierMixin):
                 margin = y[i] * (np.dot(X[i], self.coef_) + self.intercept_)
                 
                 if margin < 1:
-                    # Misclassified or within margin
                     self.coef_ -= self.learning_rate * (
                         self.coef_ / self.C - y[i] * X[i]
                     )
                     self.intercept_ -= self.learning_rate * (-y[i])
                 else:
-                    # Correctly classified
                     self.coef_ -= self.learning_rate * (self.coef_ / self.C)
         
         return self
@@ -173,7 +170,6 @@ class SVR(BaseEstimator, RegressorMixin):
                 error = y[i] - prediction
                 
                 if np.abs(error) > self.epsilon:
-                    # Outside epsilon tube
                     if error > 0:
                         self.coef_ += self.learning_rate * X[i]
                         self.intercept_ += self.learning_rate

@@ -2,7 +2,7 @@
 
 import numpy as np
 import pytest
-from sklearn_lite.linear_model import LinearRegression, LogisticRegression
+from simpleml.linear_model import LinearRegression, LogisticRegression
 
 
 class TestLinearRegression:
@@ -15,8 +15,7 @@ class TestLinearRegression:
         
         model = LinearRegression()
         model.fit(X, y)
-        
-        # Model should learn approximately y = 2*x1 + 0*x2 - 1
+
         predictions = model.predict(X)
         assert predictions.shape == y.shape
         assert np.allclose(predictions, y, atol=0.1)
@@ -58,4 +57,4 @@ class TestLogisticRegression:
         
         proba = model.predict_proba(X)
         assert proba.shape == (3, 2)
-        assert np.allclose(proba.sum(axis=1), 1.0)  # Probabilities sum to 1
+        assert np.allclose(proba.sum(axis=1), 1.0)

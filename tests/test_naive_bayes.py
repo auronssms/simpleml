@@ -2,7 +2,7 @@
 
 import numpy as np
 import pytest
-from sklearn_lite.naive_bayes import GaussianNaiveBayes, MultinomialNaiveBayes
+from simpleml.naive_bayes import GaussianNaiveBayes, MultinomialNaiveBayes
 
 
 class TestGaussianNaiveBayes:

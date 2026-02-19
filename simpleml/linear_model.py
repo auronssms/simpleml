@@ -46,7 +46,6 @@ class LinearRegression(BaseEstimator, RegressorMixin):
         if self.fit_intercept:
             X = np.column_stack([np.ones(X.shape[0]), X])
         
-        # Solve using normal equation: (X^T X)^(-1) X^T y
         self.coef_ = np.linalg.lstsq(X, y, rcond=None)[0]
         
         if self.fit_intercept:
@@ -145,7 +144,6 @@ class LogisticRegression(BaseEstimator, ClassifierMixin):
             z = X @ self.coef_ + self.intercept_
             y_pred = self._sigmoid(z)
             
-            # Gradient descent
             dw = (1 / n_samples) * X.T @ (y_pred - y)
             db = (1 / n_samples) * np.sum(y_pred - y)
             
@@ -169,7 +167,9 @@ class LogisticRegression(BaseEstimator, ClassifierMixin):
             Predicted class labels (0 or 1).
         """
         X = check_array(X, dtype=np.float64)
-        return (self.predict_proba(X) >= 0.5).astype(int).flatten()
+        z = X @ self.coef_ + self.intercept_
+        proba = self._sigmoid(z)
+        return (proba >= 0.5).astype(int)
     
     def predict_proba(self, X: np.ndarray) -> np.ndarray:
         """

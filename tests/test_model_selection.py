@@ -2,8 +2,8 @@
 
 import numpy as np
 import pytest
-from sklearn_lite.model_selection import KFold, cross_validate, GridSearchCV
-from sklearn_lite.linear_model import LogisticRegression
+from simpleml.model_selection import KFold, cross_validate, GridSearchCV
+from simpleml.linear_model import LogisticRegression
 
 
 class TestKFold:

@@ -25,10 +25,10 @@ pip install -r requirements.txt
 ### Basic Classification
 
 ```python
-from sklearn_lite.linear_model import LogisticRegression
-from sklearn_lite.preprocessing import StandardScaler
-from sklearn_lite.model_selection import train_test_split
-from sklearn_lite.metrics import accuracy_score
+from simpleml.linear_model import LogisticRegression
+from simpleml.preprocessing import StandardScaler
+from simpleml.model_selection import train_test_split
+from simpleml.metrics import accuracy_score
 import numpy as np
 
 # Generate sample data
@@ -55,7 +55,7 @@ print(f"Accuracy: {accuracy_score(y_test, y_pred)}")
 ### Decision Tree Classifier
 
 ```python
-from sklearn_lite.tree import DecisionTreeClassifier
+from simpleml.tree import DecisionTreeClassifier
 
 X = np.array([[0, 0], [1, 1], [0, 1], [1, 0]])
 y = np.array([0, 1, 1, 0])
@@ -68,7 +68,7 @@ predictions = clf.predict(X)
 ### Random Forest
 
 ```python
-from sklearn_lite.ensemble import RandomForestClassifier
+from simpleml.ensemble import RandomForestClassifier
 
 clf = RandomForestClassifier(n_estimators=10, random_state=42)
 clf.fit(X_train, y_train)
@@ -78,7 +78,7 @@ predictions = clf.predict(X_test)
 ### K-Means Clustering
 
 ```python
-from sklearn_lite.cluster import KMeans
+from simpleml.cluster import KMeans
 
 kmeans = KMeans(n_clusters=3, random_state=42)
 kmeans.fit(X)
@@ -88,7 +88,7 @@ labels = kmeans.predict(X_new)
 ### Cross-Validation
 
 ```python
-from sklearn_lite.model_selection import cross_validate
+from simpleml.model_selection import cross_validate
 
 scores = cross_validate(clf, X, y, cv=5)
 print(f"Mean test score: {scores['mean_test_score']}")
@@ -97,7 +97,7 @@ print(f"Mean test score: {scores['mean_test_score']}")
 ### Grid Search
 
 ```python
-from sklearn_lite.model_selection import GridSearchCV
+from simpleml.model_selection import GridSearchCV
 
 param_grid = {
     'learning_rate': [0.01, 0.1],
@@ -112,7 +112,7 @@ print(f"Best parameters: {gs.best_params_}")
 ## Module Structure
 
 ```
-sklearn_lite/
+simpleml/
 ├── __init__.py              # Package initialization
 ├── base.py                  # Base classes (BaseEstimator, ClassifierMixin, etc.)
 ├── linear_model.py          # Linear regression and classification
@@ -165,7 +165,7 @@ sklearn_lite/
 
 ## Metrics
 
-All metrics are available in `sklearn_lite.metrics`:
+All metrics are available in `simpleml.metrics`:
 
 - `accuracy_score`: Classification accuracy
 - `precision_score`: Precision for binary classification
@@ -187,7 +187,7 @@ pytest tests/ -v
 Run tests with coverage:
 
 ```bash
-pytest tests/ --cov=sklearn_lite
+pytest tests/ --cov=simpleml
 ```
 
 ## Documentation
@@ -195,7 +195,7 @@ pytest tests/ --cov=sklearn_lite
 Each module is thoroughly documented with docstrings following NumPy style. Use `help()` in Python:
 
 ```python
-from sklearn_lite.linear_model import LogisticRegression
+from simpleml.linear_model import LogisticRegression
 help(LogisticRegression)
 ```
 

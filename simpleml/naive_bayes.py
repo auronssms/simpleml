@@ -149,7 +149,6 @@ class MultinomialNaiveBayes(BaseEstimator, ClassifierMixin):
             X_c = X[y == c]
             self.class_log_prior_[idx] = np.log(len(X_c) / len(X))
             
-            # Calculate feature probabilities with smoothing
             feature_counts = np.sum(X_c, axis=0)
             smoothed_fc = feature_counts + self.alpha
             self.feature_log_prob_[idx, :] = np.log(

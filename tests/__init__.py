@@ -1,1 +1,1 @@
-"""Tests for sklearn-lite."""
+"""Tests for simpleml."""

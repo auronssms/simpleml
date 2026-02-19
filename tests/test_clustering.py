@@ -2,7 +2,7 @@
 
 import numpy as np
 import pytest
-from sklearn_lite.cluster import KMeans, DBSCAN
+from simpleml.cluster import KMeans, DBSCAN
 
 
 class TestKMeans:

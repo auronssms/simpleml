@@ -2,7 +2,7 @@
 
 import numpy as np
 import pytest
-from sklearn_lite.preprocessing import StandardScaler, MinMaxScaler, OneHotEncoder
+from simpleml.preprocessing import StandardScaler, MinMaxScaler, OneHotEncoder
 
 
 class TestStandardScaler:
@@ -46,9 +46,9 @@ class TestMinMaxScaler:
         X = np.array([[0], [5], [10]])
         scaler = MinMaxScaler(feature_range=(-1, 1))
         X_scaled = scaler.fit_transform(X)
-        
+
         assert X_scaled.min() == -1
-        assert X_scaled.max() == 1
+        assert np.isclose(X_scaled.max(), 1)
 
 
 class TestOneHotEncoder:

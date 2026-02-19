@@ -74,7 +74,6 @@ class KMeans(BaseEstimator, ClusterMixin):
             if len(cluster_points) > 0:
                 centroids[k] = np.mean(cluster_points, axis=0)
             else:
-                # If cluster is empty, reinitialize randomly
                 centroids[k] = X[np.random.choice(X.shape[0])]
         
         return centroids
@@ -120,13 +119,11 @@ class KMeans(BaseEstimator, ClusterMixin):
                 labels = self._assign_clusters(X, centroids)
                 new_centroids = self._update_centroids(X, labels)
                 
-                # Check convergence
                 if np.sum((new_centroids - centroids) ** 2) < self.tol:
                     break
                 
                 centroids = new_centroids
             
-            # Calculate inertia for this run
             self.cluster_centers_ = centroids
             inertia = self._calculate_inertia(X, labels)
             
@@ -222,7 +219,6 @@ class DBSCAN(BaseEstimator, ClusterMixin):
                 visited[i] = True
                 continue
             
-            # Start a new cluster
             cluster_id += 1
             self._expand_cluster(X, i, neighbors, cluster_id, visited)
         

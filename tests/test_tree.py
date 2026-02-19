@@ -2,7 +2,7 @@
 
 import numpy as np
 import pytest
-from sklearn_lite.tree import DecisionTreeClassifier, DecisionTreeRegressor
+from simpleml.tree import DecisionTreeClassifier, DecisionTreeRegressor
 
 
 class TestDecisionTreeClassifier:

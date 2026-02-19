@@ -2,7 +2,7 @@
 
 import numpy as np
 import pytest
-from sklearn_lite.svm import LinearSVC, SVR
+from simpleml.svm import LinearSVC, SVR
 
 
 class TestLinearSVC:

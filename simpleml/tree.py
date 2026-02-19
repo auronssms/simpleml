@@ -9,13 +9,13 @@ class Node:
     """Node in a decision tree."""
     
     def __init__(self, feature=None, threshold=None, left=None, right=None, value=None):
-        self.feature = feature          # Index of feature to split on
-        self.threshold = threshold      # Threshold value to split on
-        self.left = left               # Left subtree
-        self.right = right             # Right subtree
-        self.value = value             # Class value if leaf node
-        self.samples = 0               # Number of samples
-        self.impurity = 0              # Gini impurity or MSE
+        self.feature = feature         
+        self.threshold = threshold     
+        self.left = left               
+        self.right = right             
+        self.value = value             
+        self.samples = 0               
+        self.impurity = 0              
 
 
 class DecisionTreeClassifier(BaseEstimator, ClassifierMixin):
@@ -126,7 +126,7 @@ class DecisionTreeClassifier(BaseEstimator, ClassifierMixin):
                 right_mask = ~left_mask
                 
                 if np.sum(left_mask) < self.min_samples_split or \
-                   np.sum(right_mask) < self.min_samples_split:
+                    np.sum(right_mask) < self.min_samples_split:
                     continue
                 
                 gain = self._information_gain(y, y[left_mask], y[right_mask])
@@ -147,10 +147,9 @@ class DecisionTreeClassifier(BaseEstimator, ClassifierMixin):
         node.samples = n_samples
         node.impurity = self._gini(y) if self.criterion == "gini" else self._entropy(y)
         
-        # Stopping criteria
         if (self.max_depth is not None and depth >= self.max_depth) or \
-           n_classes == 1 or \
-           n_samples < self.min_samples_split:
+            n_classes == 1 or \
+            n_samples < self.min_samples_split:
             node.value = Counter(y).most_common(1)[0][0]
             return node
         
@@ -258,7 +257,7 @@ class DecisionTreeRegressor(BaseEstimator, RegressorMixin):
                 right_mask = ~left_mask
                 
                 if np.sum(left_mask) < self.min_samples_split or \
-                   np.sum(right_mask) < self.min_samples_split:
+                    np.sum(right_mask) < self.min_samples_split:
                     continue
                 
                 mse_parent = self._mse(y)
@@ -286,10 +285,9 @@ class DecisionTreeRegressor(BaseEstimator, RegressorMixin):
         node.samples = n_samples
         node.impurity = self._mse(y)
         
-        # Stopping criteria
         if (self.max_depth is not None and depth >= self.max_depth) or \
-           n_samples < self.min_samples_split or \
-           np.std(y) == 0:
+            n_samples < self.min_samples_split or \
+            np.std(y) == 0:
             node.value = np.mean(y)
             return node
         

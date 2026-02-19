@@ -96,7 +96,6 @@ class RandomForestClassifier(BaseEstimator, ClassifierMixin):
         X = np.asarray(X)
         predictions = np.array([tree.predict(X) for tree in self.trees_])
         
-        # Majority voting
         y_pred = np.zeros(X.shape[0])
         for i in range(X.shape[0]):
             votes = predictions[:, i]
