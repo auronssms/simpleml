@@ -235,7 +235,7 @@ MIT License
 
 ## Author
 
-sergeauronss01
+Serge Auronss Gbaguidi
 
 ## References
 
