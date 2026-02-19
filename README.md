@@ -1,4 +1,4 @@
-# sklearn-lite
+# simpleml
 
 A lightweight, educational implementation of a scikit-learn-like machine learning library in pure Python and NumPy.
 
@@ -15,8 +15,8 @@ A lightweight, educational implementation of a scikit-learn-like machine learnin
 ## Installation
 
 ```bash
-git clone https://github.com/sergeauronss01/sklearn-lite.git
-cd sklearn-lite
+git clone https://github.com/sergeauronss01/simpleml.git
+cd simpleml
 pip install -r requirements.txt
 ```
 
