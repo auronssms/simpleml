@@ -17,7 +17,7 @@ def check_array(X: ArrayLike, ensure_2d: bool = True, copy: bool = False) -> np.
         Whether a forced copy will be triggered. If False, a copy might 
         still be made if the input is not already a numeric numpy array.
     """
-    X_arr = np.array(X, copy=True) if copy else np.array(X)
+    X_arr = np.array(X, dtype=np.float64, copy=True) if copy else np.array(X)
     
     if X_arr.ndim == 0:
         raise ValueError("Singleton array (0-D) is not a valid input.")
@@ -40,7 +40,7 @@ def check_X_y(X: ArrayLike, y: ArrayLike) -> Tuple[np.ndarray, np.ndarray]:
     Checks X and y for consistent length, enforces X to be 2D and y to be 1D.
     """
     X_arr = check_array(X, ensure_2d=True)
-    y_arr = np.asarray(y)
+    y_arr = np.asarray(y, dtype=np.float64)
 
     if y_arr.ndim > 1:
         y_arr = y_arr.ravel()
