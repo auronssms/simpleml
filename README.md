@@ -23,6 +23,12 @@ A lightweight, educational implementation of a scikit-learn-like machine learnin
 ## Installation
 
 ```bash
+pip install simpleml-auronss
+```
+
+But if you want to have the folder locally you can do it that way:
+
+```bash
 git clone https://github.com/sergeauronss01/simpleml.git
 cd simpleml
 pip install -e .
