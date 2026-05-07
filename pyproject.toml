@@ -4,47 +4,22 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "simpleml-auronss"
-version = "0.1.0"
-description = "A lightweight, educational scikit-learn-like machine learning library"
+version = "0.2.0"
+authors = [{name = "Serge Auronss", email = "auronss.ms@gmail.com"}]
+description = "A pure Python/NumPy Machine Learning Library"
 readme = "README.md"
-requires-python = ">=3.7"
-license = {text = "MIT"}
-authors = [
-    { name = "Serge Auronss Gbaguidi" },
-]
-classifiers = [
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.7",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
-    "Intended Audience :: Education",
-    "Intended Audience :: Developers",
-    "Topic :: Scientific/Engineering :: Artificial Intelligence",
-]
+requires-python = ">=3.9"
 dependencies = [
-    "numpy>=1.19.0",
+    "numpy>=2.0"
 ]
-
-[project.urls]
-"Homepage" = "https://github.com/auronssms/simpleml"
-"Repository" = "https://github.com/auronssms/simpleml"
 
 [project.optional-dependencies]
 dev = [
-    "pytest>=6.0.0",
-    "pytest-cov>=2.10.0",
+    "pytest",
+    "black",
+    "flake8"
 ]
 
+# Auto-discovery of packages in 'src'
 [tool.setuptools.packages.find]
-where = ["."]
-
-[tool.pytest.ini_options]
-minversion = "6.0"
-addopts = "-ra -q --cov=simpleml"
-testpaths = [
-    "tests",
-]
+where = ["src"]

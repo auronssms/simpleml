@@ -1,3 +1,18 @@
+Metadata-Version: 2.4
+Name: simpleml-auronss
+Version: 0.2.0
+Summary: A pure Python/NumPy Machine Learning Library
+Author-email: Serge Auronss <auronss.ms@gmail.com>
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: numpy>=2.0
+Provides-Extra: dev
+Requires-Dist: pytest; extra == "dev"
+Requires-Dist: black; extra == "dev"
+Requires-Dist: flake8; extra == "dev"
+Dynamic: license-file
+
 # simpleml
 
 A lightweight, educational implementation of a scikit-learn-like machine learning library in pure Python and NumPy.
