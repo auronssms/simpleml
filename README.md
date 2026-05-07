@@ -1,6 +1,9 @@
 # simpleml
 
 A lightweight, educational implementation of a scikit-learn-like machine learning library in pure Python and NumPy.
+There is no guarantee that the models and algorithms implemented here will lend effective results. Please keep in mind that 
+this project if for educational purposes for me to deepen my understanding of machine learning algrithms. For production 
+machine learning work, please use [scikit-learn](https://scikit-learn.org/).
 
 ## Features
 
